@@ -1,4 +1,4 @@
-package collectionPrograms;
+package Jdbc.Restaurant_Using_dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -31,7 +31,7 @@ public class RestaurantDaoImp implements RestaurantDaoInt{
 	public int removeItem(String item) {
 		int i=0;
 		Connection con = Dbcon.getCon();
-		String query = "delete from menu where FoodItem = ?";
+		String query = "delete from menu where food_Item = ?";
 		try {
 			PreparedStatement ps = con.prepareStatement(query);
 			ps.setString(1, item);
@@ -44,7 +44,7 @@ public class RestaurantDaoImp implements RestaurantDaoInt{
 	}
 
 	@Override
-	public List<MenuDto> display() {
+	public List<MenuDto> displayMenu() {
 		List<MenuDto> l = new ArrayList<>();
 		MenuDto i;
 		Connection con = Dbcon.getCon();

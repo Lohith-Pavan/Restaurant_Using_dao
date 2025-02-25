@@ -1,4 +1,4 @@
-package collectionPrograms;
+package Jdbc.Restaurant_Using_dao;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,27 +1,33 @@
-package collectionPrograms;
+package Jdbc.Restaurant_Using_dao;
 
 import java.util.List;
 
 public class RestaurantMain {
     public static void main(String args[]) {
     	RestaurantDaoInt rd = new RestaurantDaoImp();
-    	List<MenuDto> l = rd.display();
+    	List<MenuDto> l = rd.displayMenu();
     	System.out.println("--------------Menu---------------");
     	for(MenuDto x : l) {
     		System.out.println(x);
     	}
-    	MenuDto ob = new MenuDto("Mutton biryani",400);
-    	int i= rd.addItem(ob);
+    	CustomerDaoInt cd = new CustomerDaoImp();
+    	CustomerDto c1 = new CustomerDto("Sambar rice",2);
+    	CustomerDto c2 = new CustomerDto("Mutton Biryani",1);
+    	int i = cd.addOrder(c1);
     	if(i>0) {
-    		System.out.println("Item added successfully");
-    	}else {
-    		System.out.println("not added");
+    		System.out.println("item added");
     	}
-    	int j= rd.removeItem("Sambar Rice");
+    	else {
+    		System.out.println("item not added");
+    	}
+    	int j = cd.addOrder(c2);
     	if(j>0) {
-    		System.out.println("Item removed successfully");
-    	}else {
-    		System.out.println("not removed");
+    		System.out.println("item added");
     	}
+    	else {
+    		System.out.println("item not added");
+    	}
+    	int bill = cd.bill();
+    	System.out.println("the bill is : "+bill);
     }
 }

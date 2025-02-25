@@ -1,4 +1,4 @@
-package collectionPrograms;
+package Jdbc.Restaurant_Using_dao;
 
 public class Teacher {
     int id;
